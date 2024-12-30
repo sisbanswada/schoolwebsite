@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, GraduationCap, Trophy, Atom } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { path } from 'framer-motion/client';
-import { p } from 'framer-motion/m';
 
 
 const Home = () => {
