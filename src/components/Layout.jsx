@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const Layout = ({ children }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [activeNavItem, setActiveNavItem] = useState('Home'); // State for active nav item
-    const navigate = useNavigate();
-    const currentYear = new Date().getFullYear();
+    // const navigate = useNavigate();
+    // const currentYear = new Date().getFullYear();
 
 
     useEffect(() => {
