@@ -52,6 +52,7 @@ import Academics from './pages/Academics';
 import ExtraCurricular from './pages/ExtraCurricular';
 import Campus from './pages/Campus';
 import ContactUs from './pages/ContactUs';
+import Gallery from './pages/Gallery';
 
 const App = () => {
   return (
@@ -63,8 +64,8 @@ const App = () => {
           <Route path="/academics" element={<Academics />} />
           <Route path="/extra-curricular" element={<ExtraCurricular />} />
           <Route path="/campus" element={<Campus />} />
+          <Route path="/gallery" element={<Gallery   />} />
           <Route path="/contact" element={<ContactUs />} />
-          {/* <Route path="*" element={<NotFoundPage />} /> */}
         </Routes>
       </Layout>
     </Router>

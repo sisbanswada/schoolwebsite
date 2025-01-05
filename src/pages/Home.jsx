@@ -21,6 +21,21 @@ const Home = () => {
       image: '/hero/sl3.jpg',
       title: 'Holistic Development',
       description: 'Beyond academics - sports, arts, and more'
+    },
+    {
+      image: '/hero/sl4.jpg',
+      title: 'Cutting-Edge Technology',
+      description: 'Equipped with modern learning tools and resources'
+    },
+    {
+      image: '/hero/sl5.jpg',
+      title: 'National Cadet Corps (NCC)',
+      description: 'Fostering discipline, leadership, and patriotism among students'
+    },
+    {
+      image: '/hero/sl6.jpg',
+      title: 'Global Perspectives',
+      description: 'Encouraging diversity and cultural awareness'
     }
   ];
 
@@ -113,7 +128,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 7000);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
@@ -235,59 +250,12 @@ const Home = () => {
 
 
       {/* Campus Photos Section */}
-      <section className="py-24 bg-gradient-to-b from-indigo-100 to-blue-100">
+      <section className="py-24 bg-gradient-to-b from-indigo-100 via-white to-blue-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-indigo-900 mb-4">Campus Life</h2>
             <div className="w-24 h-1 bg-indigo-600 mx-auto"></div>
           </div>
-
-          {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="grid gap-4">
-              <div>
-                <img className="h-auto max-w-full rounded-lg" src="/campus_life/cl1.jpg" alt="" />
-              </div>
-              <div>
-                <img className="h-auto max-w-full rounded-lg" src="/campus_life/cl2.jpg" alt="" />
-              </div>
-              <div>
-                <img className="h-auto max-w-full rounded-lg" src="/campus_life/cl3.jpg" alt="" />
-              </div>
-            </div>
-            <div className="grid gap-4">
-              <div>
-                <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt="" />
-              </div>
-              <div>
-                <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt="" />
-              </div>
-              <div>
-                <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt="" />
-              </div>
-            </div>
-            <div className="grid gap-4">
-              <div>
-                <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt="" />
-              </div>
-              <div>
-                <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt="" />
-              </div>
-              <div>
-                <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt="" />
-              </div>
-            </div>
-            <div className="grid gap-4">
-              <div>
-                <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt="" />
-              </div>
-              <div>
-                <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt="" />
-              </div>
-              <div>
-                <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="" />
-              </div>
-            </div>
-          </div> */}
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {campus_life.map((campus, index) => (

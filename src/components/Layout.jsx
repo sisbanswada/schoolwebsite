@@ -1,22 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Layout = ({ children }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
     const [activeNavItem, setActiveNavItem] = useState('Home'); // State for active nav item
-    // const navigate = useNavigate();
-    // const currentYear = new Date().getFullYear();
-
+    const navigate = useNavigate();
+    const { pathname } = useLocation();
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
     const navItems = [
         { name: 'Home', path: '/' },
@@ -38,13 +32,13 @@ const Layout = ({ children }) => {
     return (
         <div className="min-h-screen flex flex-col">
             {/* Navbar */}
-            <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-gray-900 shadow-lg' : 'bg-gray-900'}`}>
+            <nav className={`fixed w-full z-50 transition-all duration-300 bg-gray-900`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-20">
                         {/* Logo */}
-                        <div className="flex items-center space-x-4">
+                        <div className="flex items-center space-x-3 bg-slate-50 rounded-2xl">
                             <img
-                                className="h-20 w-auto"
+                                className="h-16 w-auto"
                                 src="/school_logo1.png"
                                 alt="School Logo"
                             />
@@ -66,7 +60,7 @@ const Layout = ({ children }) => {
                                     <button
                                         onClick={() => {
                                             setActiveNavItem(item.name);
-                                            // navigate(item.path);
+                                            navigate(item.path);
                                         }} // Set active item
                                         className="text-white  hover:text-pink-400 font-medium flex items-center px-3 py-2"
                                     >
@@ -123,9 +117,11 @@ const Layout = ({ children }) => {
                         {navItems.map((item) => (
                             <div key={item.name}>
                                 <a
-                                    // href={item.path}
-                                    onClick={() => setActiveNavItem(item.name)} // Set active item
-                                    className={`block px-3 py-2 text-base font-medium rounded-md ${activeNavItem === item.name ? 'text-white bg-blue-600' : 'text-white'
+                                    onClick={() => {
+                                        navigate(item.path); // Navigate programmatically
+                                        setIsMenuOpen(false); // Optionally close the mobile menu
+                                    }}
+                                    className={`block px-3 py-2 text-base font-medium rounded-md ${pathname === item.path ? 'text-white bg-blue-600' : 'text-white'
                                         }`}
                                 >
                                     {item.name}
@@ -146,6 +142,7 @@ const Layout = ({ children }) => {
                             </div>
                         ))}
                     </div>
+
                 </div>
             </nav>
 
@@ -209,7 +206,7 @@ const Layout = ({ children }) => {
                         </div>
 
                         {/* Quick Links */}
-                        <div>
+                        {/* <div>
                             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
                             <ul className="space-y-2 text-sm text-gray-400">
                                 {navItems.map((item) => (
@@ -223,7 +220,7 @@ const Layout = ({ children }) => {
                                     </li>
                                 ))}
                             </ul>
-                        </div>
+                        </div> */}
 
                         {/* Social Media */}
                         <div>
@@ -234,8 +231,8 @@ const Layout = ({ children }) => {
                                     <Instagram className="text-pink-500 w-6 h-6 hover:scale-110 transition-transform" />
                                 </a>
 
-                                 {/* Facebook */}
-                                 <a href="https://www.facebook.com/profile.php?id=100082965777198" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                                {/* Facebook */}
+                                <a href="https://www.facebook.com/profile.php?id=100082965777198" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                                     <Facebook className="text-blue-500 w-6 h-6 hover:scale-110 transition-transform" />
                                 </a>
                             </div>
